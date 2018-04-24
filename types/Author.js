@@ -18,6 +18,7 @@ module.exports = new GraphQLObjectType({
           const ids = xml.GoodreadsResponse.author[0].books[0].book.map(
             elem => elem.id[0]._,
           );
+
           return bookLoader.loadMany(ids);
         },
       },

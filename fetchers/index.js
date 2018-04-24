@@ -4,7 +4,7 @@ const parseXML = util.promisify(require('xml2js').parseString);
 
 module.exports = {
   translate: (lang, str) => {
-    // To generate your own key, go here: https://cloud.google.com/translate/v2/getting_started
+    // Para gerar chave: https://cloud.google.com/translate/v2/getting_started
     const apiKey = 'AIzaSyBN-bwtos8sKU6X84wkrdjtCF7uzng6kgQ';
     const url =
       'https://www.googleapis.com' +
@@ -19,9 +19,7 @@ module.exports = {
 
     return fetch(url)
       .then(response => response.json())
-      .then(
-        parsedResponse => parsedResponse.data.translations[0].translatedText,
-      );
+      .then(parsedResponse => parsedResponse.data.translations[0].translatedText);
   },
 
   fetchAuthor: id =>
